@@ -1,0 +1,17 @@
+<div id="<%= dom_id blog %>" class="card mb-4 shadow-lg border-primary border-2 rounded-4 animate__animated animate__fadeIn">
+  <div class="card-body">
+    <h3 class="card-title text-primary fw-bold"><%= blog.title %></h3>
+    <div class="mb-2 text-muted">
+      <% if blog.published? %>
+        <span class="badge bg-success">Published</span>
+        <small>on <%= blog.published_at&.strftime('%b %d, %Y') %></small>
+      <% else %>
+        <span class="badge bg-secondary">Unpublished</span>
+      <% end %>
+    </div>
+    <div class="mb-2">
+      <%= blog.content&.body&.to_trix_html || blog.content %>
+    </div>
+    <small class="text-muted">By Admin #<%= blog.admin_id %></small>
+  </div>
+</div>

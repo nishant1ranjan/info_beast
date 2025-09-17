@@ -1,0 +1,13 @@
+<section class="container py-5 animate__animated animate__fadeIn">
+  <h1 class="mb-4 text-center fw-bold text-primary">Blogs</h1>
+  <div id="blogs" class="row g-4">
+    <% Blog.where(published: true).order(published_at: :desc).each do |blog| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <%= render blog %>
+        <p class="text-center mb-4">
+          <%= link_to "Read more", blog, class: "btn btn-outline-primary btn-sm px-4" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>
